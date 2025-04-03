@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ICS2O-Unit2-03-HTML-MDL -->
+<!-- ICS2O-Unit3-03-HTML-MDL -->
 <html lang="en-ca">
 
 <head>
@@ -30,29 +30,21 @@
       <div class="right-image">
         <img src="./images/volume-of-sphere.png" alt="volume of sphere" />
       </div>
-      <p>Formula</p>
-      <br />
-      <p>V = 4/3πr³</p>
-      <br />
-      <p>Please enter integers for radius:</p>
-      <br />
-      <form action="answer.php" method="GET">
-        <span>radius:</span>
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="radius" name="radius">
-          <label class="mdl-textfield__label" for="radius"></label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          $radiusOfSphere = $_GET["radius"];
+          // process
+          $volume = 4 / 3 * M_PI * $radiusOfSphere ** 3;
+          $roundNumber = round($volume, 3);
+          // output
+          echo "If the radius is " . $radiusOfSphere . ", the volume of the sphere is " . $roundNumber . " mm³.";
+          ?>
+          <div class="page-content-answer">
+            <a href="./index.php">Return</a>
+          </div>
         </div>
-        <span>mm</span>
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Calculate
-        </button>
-      </form>
-  </div>
-  </main>
+    </main>
   </div>
 </body>
 
